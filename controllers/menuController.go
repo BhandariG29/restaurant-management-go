@@ -127,7 +127,6 @@ func UpdateMenu() gin.HandlerFunc {
 				Upsert: &upsert,
 			}
 
-
 			result, err := menuCollection.UpdateOne(
 				ctx,
 				filter,

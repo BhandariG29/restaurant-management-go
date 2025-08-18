@@ -149,8 +149,6 @@ func UpdateOrder() gin.HandlerFunc {
 
 		defer cancel()
 		c.JSON(http.StatusOK, result)
-
-
 	}
 }
 

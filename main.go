@@ -31,6 +31,4 @@ func main(){
 	routes.TableRoutes(router)
 
 	router.Run(":" + port)
-
-
 }

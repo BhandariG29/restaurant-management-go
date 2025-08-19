@@ -1,18 +1,24 @@
 package main
 
 import (
+	"log"
 	"os"
 
 	database "github.com/BhandariG29/restaurant-management-go/database"
 	middleware "github.com/BhandariG29/restaurant-management-go/middleware"
 	routes "github.com/BhandariG29/restaurant-management-go/routes"
-	"go.mongodb.org/mongo-driver/mongo"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 var foodCollection *mongo.Collection = database.OpenCollection(database.Client, "food")
 
 func main(){
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 	port := os.Getenv("PORT")
 	if port == ""{
 		port = "8080"
